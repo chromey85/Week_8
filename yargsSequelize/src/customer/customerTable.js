@@ -7,6 +7,8 @@ const Customer = sequelize.define("Customer", {
         type: DataTypes.INTEGER,
         allowNull:false,
         unique: true,
+        autoIncrement: true,
+        required: true,
         primaryKey: true 
     },
 
@@ -19,17 +21,29 @@ const Customer = sequelize.define("Customer", {
     firstName: {
         type: DataTypes.STRING,
         allowNull:false,
+        required: true,
         unique: false
     },
 
     surName: {
         type: DataTypes.STRING,
         allowNull:false,
+        required: true,
         unique: false
     },
 
-    id: {
-        foreignKey: true,
+    dob: {
+        type: DataTypes.DATE,
+        required: true,
+        allowNull: false,
+        unique: false
+    },
+
+    movie_id: {
+        //foreign Key in movieTable.js
+        type: DataTypes.INTEGER,
+        allowNull:false,
+        required: true
     }
 })
 
